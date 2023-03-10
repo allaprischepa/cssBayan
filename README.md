@@ -1,2 +1,2 @@
 # cssBayan
-https://allaprischepa.io/cssBayan/cssBayan/index.html  
+https://allaprischepa.github.io/cssBayan/cssBayan/index.html  
