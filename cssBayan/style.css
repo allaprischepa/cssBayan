@@ -1,0 +1,49 @@
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.item {
+  max-width: 50vw;
+  color: white;
+  overflow: hidden;
+  margin:auto;
+}
+.item-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #3c5772;
+  font-weight: bold;
+  cursor: pointer;
+}
+.item-label:hover {
+  background: #243f58;
+}
+.item-label::after {
+    font-family: 'FontAwesome';
+    content: "\f067";
+    transition: 0.5s;
+}
+
+.item-content {
+  max-height: 0;
+  background: #e5eaeb;
+  transition: 0.5s;
+  text-align: center;
+}
+.item-content img {
+    width: 30vw;
+}
+
+input:checked + .item-label {
+  background: #243f58;
+}
+input:checked + .item-label::after {
+  content: "\f00d";
+}
+input:checked ~ .item-content {
+  max-height: 100vh;
+  padding: 1em;
+}
