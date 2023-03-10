@@ -1,35 +1,51 @@
+body {
+  background: #ebe8e5;
+  font-family: 'Rubik', sans-serif;
+}
 input {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
+h1 {
+  margin: 0.5em 0;
+}
 
-.item {
+.accordion {
   max-width: 50vw;
-  color: white;
-  overflow: hidden;
+  padding: 0.5em;
   margin:auto;
 }
-.item-label {
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  background: #3c5772;
-  font-weight: bold;
+.item {
+  overflow: hidden;
+}
+.item .item-label {
   cursor: pointer;
 }
-.item-label:hover {
-  background: #243f58;
+.item .item-text {
+  color:#0300cf;
 }
-.item-label::after {
-    font-family: 'FontAwesome';
-    content: "\f067";
-    transition: 0.5s;
+.item-label-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-top: 1px gray solid;
+}
+
+.item-icon {
+  display: none;
+}
+.items:hover .item-icon {
+  display: block;
+}
+.items:hover .item-text {
+  color: inherit;
 }
 
 .item-content {
   max-height: 0;
-  background: #e5eaeb;
   transition: 0.5s;
   text-align: center;
 }
@@ -37,13 +53,18 @@ input {
     width: 30vw;
 }
 
-input:checked + .item-label {
-  background: #243f58;
+.item-label:hover .item-content {
+  max-height: 100vh;
+  padding: 1em;
 }
-input:checked + .item-label::after {
-  content: "\f00d";
+
+input:checked + .item-label .item-label-header .item-text {
+  color: inherit;
 }
-input:checked ~ .item-content {
+input:checked + .item-label .item-label-header .item-icon {
+  transform: rotate(45deg);
+}
+input:checked ~ .item-label .item-content {
   max-height: 100vh;
   padding: 1em;
 }
