@@ -1,47 +1,39 @@
+/* Mobile first */
 body {
   background: #ebe8e5;
   font-family: 'Rubik', sans-serif;
-  font-size: 1vw;
-}
-input {
-  display: none;
+  font-size: 2vw;
 }
 h1 {
   margin: 0.5em 0;
 }
 
 .accordion {
+  max-width: 80vw;
   padding: 0.5em;
   margin:auto;
 }
-.item {
+.accordion input {
+  display: none;
+}
+.accordion .item {
   overflow: hidden;
 }
-.item .item-label {
+.accordion .item .item-label {
   cursor: pointer;
 }
-.item .item-text {
-  color:#0300cf;
-}
-.item-label-header {
+.accordion .item .item-label-header {
   display: flex;
   justify-content: space-between;
   padding: 1em 0.5em;
   font-weight: bold;
   border-top: 1px gray solid;
 }
-
-.item-icon {
-  display: none;
-}
-.items:hover .item-icon {
-  display: block;
-}
-.items:hover .item-text {
-  color: inherit;
+.accordion .item .item-label-header .item-text {
+  color:#0300cf;
 }
 
-.item-content {
+.accordion .item .item-content {
   opacity: 0;
   height: 0;
   width: 0;
@@ -49,20 +41,18 @@ h1 {
   margin: auto;
   text-align: center;
 }
-.item-content img {
+.accordion .item .item-content img {
   width: 80%;
 }
 
-input:checked + .item-label .item-label-header .item-text {
+/* When checked */
+.accordion input:checked + .item-label .item-label-header .item-text {
   color: inherit;
 }
-input:checked + .item-label .item-label-header .item-icon {
+.accordion input:checked + .item-label .item-label-header .item-icon {
   transform: rotate(45deg);
 }
-
-/* Image effect on hover and check */
-.item-label:hover .item-content,
-input:checked ~ .item-label .item-content {
+.accordion input:checked ~ .item-label .item-content {
   opacity: 1;
   height: auto;
   width: 100%;
@@ -70,17 +60,8 @@ input:checked ~ .item-label .item-content {
   transition: all 0.5s;
 }
 
-/* Desktop */
-@media screen and (min-device-width: 1920px) {
-  .accordion {
-    max-width: 50vw;
-  }
-  .item-content img {
-    width: 60%;
-  }
-}
 /* Tablet */
-@media screen and (min-device-width: 820px) and (max-device-width: 1919px) {
+@media only screen and (min-width: 768px) {
   body {
     font-size: 1.5vw;
   }
@@ -88,12 +69,37 @@ input:checked ~ .item-label .item-content {
     max-width: 70vw;
   }
 }
-/* Mobile */
-@media screen and (min-device-width: 320px) and (max-device-width: 819px) {
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
   body {
-    font-size: 3vw;
+    font-size: 1vw;
   }
   .accordion {
-    max-width: 80vw;
+    max-width: 60vw;
+  }
+  .accordion .item .item-content img {
+    width: 60%;
+  }
+}
+
+/* Hover query*/
+@media (hover:hover) {
+  .accordion .item-icon {
+    display: none;
+  }
+  .accordion .items:hover .item-icon {
+    display: block;
+  }
+  .accordion .items:hover .item-text {
+    color: inherit;
+  }
+
+  .accordion .item-label:hover .item-content {
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    padding-bottom: 1em;
+    transition: all 0.5s;
   }
 }
