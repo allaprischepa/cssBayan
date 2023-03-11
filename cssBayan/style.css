@@ -3,7 +3,7 @@ body {
   background: #ebe8e5;
   color:#252525;
   font-family: 'Rubik', sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 h1 {
   margin: 0.5em 0;
@@ -71,7 +71,7 @@ h1 {
 /* Tablet */
 @media only screen and (min-width: 768px) {
   body {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
   .accordion {
     max-width: 70vw;
@@ -81,7 +81,7 @@ h1 {
 /* Desktop */
 @media only screen and (min-width: 992px) {
   body {
-    font-size: 1vw;
+    font-size: 1.3vw;
   }
   .accordion {
     max-width: 60vw;
