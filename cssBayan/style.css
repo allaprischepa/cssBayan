@@ -1,0 +1,117 @@
+/* Mobile first */
+body {
+  background: #ebe8e5;
+  color:#252525;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3vw;
+}
+h1 {
+  margin: 0.5em 0;
+}
+
+.accordion {
+  max-width: 80vw;
+  padding: 0.5em;
+  margin:auto;
+}
+.accordion input {
+  display: none;
+}
+.accordion .item {
+  overflow: hidden;
+}
+.accordion .item .item-label {
+  cursor: pointer;
+}
+.accordion .item .item-label-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0.5em;
+  font-weight: bold;
+  border-top: 1px gray solid;
+}
+.accordion .item-label-header {
+  color:#0300cf;
+}
+
+.accordion .item .item-content {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: auto;
+  text-align: center;
+}
+.accordion .item .item-content img {
+  width: 80%;
+}
+
+/* When checked */
+.accordion input:checked + .item-label .item-label-header {
+  color: inherit;
+}
+.accordion input:checked + .item-label .item-label-header .item-icon {
+  transform: rotate(45deg);
+  transition: all 0.2s;
+}
+.accordion input:checked ~ .item-label .item-content {
+  opacity: 1;
+  height: auto;
+  width: 100%;
+  padding-bottom: 1em;
+  transition: all 0.5s;
+}
+
+/* When cliked */
+.accordion .item-label:active {
+  color: #0300cf;
+  opacity: 0.5;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 2vw;
+  }
+  .accordion {
+    max-width: 70vw;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 1.3vw;
+  }
+  .accordion {
+    max-width: 60vw;
+  }
+  .accordion .item .item-content img {
+    width: 60%;
+  }
+}
+
+/* Hover query*/
+@media (hover:hover) {
+  .accordion .item-icon {
+    display: none;
+  }
+  .accordion .items:hover .item-icon {
+    display: block;
+  }
+  .accordion .items:hover .item-label-header {
+    color: inherit;
+  }
+
+  .accordion .item-label:hover .item-content {
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    padding-bottom: 1em;
+    transition: all 0.5s;
+  }
+  .accordion .item-label:hover .item-label-header .item-icon {
+    transform: rotate(45deg);
+    transition: all 0.2s;
+  }
+}
