@@ -1,6 +1,7 @@
 /* Mobile first */
 body {
   background: #ebe8e5;
+  color:#252525;
   font-family: 'Rubik', sans-serif;
   font-size: 2vw;
 }
@@ -29,7 +30,7 @@ h1 {
   font-weight: bold;
   border-top: 1px gray solid;
 }
-.accordion .item .item-label-header .item-text {
+.accordion .item-label-header {
   color:#0300cf;
 }
 
@@ -46,11 +47,12 @@ h1 {
 }
 
 /* When checked */
-.accordion input:checked + .item-label .item-label-header .item-text {
+.accordion input:checked + .item-label .item-label-header {
   color: inherit;
 }
 .accordion input:checked + .item-label .item-label-header .item-icon {
   transform: rotate(45deg);
+  transition: all 0.2s;
 }
 .accordion input:checked ~ .item-label .item-content {
   opacity: 1;
@@ -58,6 +60,12 @@ h1 {
   width: 100%;
   padding-bottom: 1em;
   transition: all 0.5s;
+}
+
+/* When cliked */
+.accordion .item-label:active {
+  color: #0300cf;
+  opacity: 0.5;
 }
 
 /* Tablet */
@@ -91,7 +99,7 @@ h1 {
   .accordion .items:hover .item-icon {
     display: block;
   }
-  .accordion .items:hover .item-text {
+  .accordion .items:hover .item-label-header {
     color: inherit;
   }
 
@@ -101,5 +109,9 @@ h1 {
     width: 100%;
     padding-bottom: 1em;
     transition: all 0.5s;
+  }
+  .accordion .item-label:hover .item-label-header .item-icon {
+    transform: rotate(45deg);
+    transition: all 0.2s;
   }
 }
