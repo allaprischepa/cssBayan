@@ -1,18 +1,16 @@
 body {
   background: #ebe8e5;
   font-family: 'Rubik', sans-serif;
+  font-size: 1vw;
 }
 input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
+  display: none;
 }
 h1 {
   margin: 0.5em 0;
 }
 
 .accordion {
-  max-width: 50vw;
   padding: 0.5em;
   margin:auto;
 }
@@ -28,8 +26,7 @@ h1 {
 .item-label-header {
   display: flex;
   justify-content: space-between;
-  padding: 1em 0;
-  font-size: 1.2em;
+  padding: 1em 0.5em;
   font-weight: bold;
   border-top: 1px gray solid;
 }
@@ -45,17 +42,15 @@ h1 {
 }
 
 .item-content {
-  max-height: 0;
-  transition: 0.5s;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: auto;
   text-align: center;
 }
 .item-content img {
-    width: 30vw;
-}
-
-.item-label:hover .item-content {
-  max-height: 100vh;
-  padding: 1em;
+  width: 80%;
 }
 
 input:checked + .item-label .item-label-header .item-text {
@@ -64,7 +59,41 @@ input:checked + .item-label .item-label-header .item-text {
 input:checked + .item-label .item-label-header .item-icon {
   transform: rotate(45deg);
 }
+
+/* Image effect on hover and check */
+.item-label:hover .item-content,
 input:checked ~ .item-label .item-content {
-  max-height: 100vh;
-  padding: 1em;
+  opacity: 1;
+  height: auto;
+  width: 100%;
+  padding-bottom: 1em;
+  transition: all 0.5s;
+}
+
+/* Desktop */
+@media screen and (min-device-width: 1920px) {
+  .accordion {
+    max-width: 50vw;
+  }
+  .item-content img {
+    width: 60%;
+  }
+}
+/* Tablet */
+@media screen and (min-device-width: 820px) and (max-device-width: 1919px) {
+  body {
+    font-size: 1.5vw;
+  }
+  .accordion {
+    max-width: 70vw;
+  }
+}
+/* Mobile */
+@media screen and (min-device-width: 320px) and (max-device-width: 819px) {
+  body {
+    font-size: 3vw;
+  }
+  .accordion {
+    max-width: 80vw;
+  }
 }
